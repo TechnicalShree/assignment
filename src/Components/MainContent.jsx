@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import { Search } from "@mui/icons-material";
-import { Typography } from "@mui/material";
 import axios from "axios";
+import "../Styles/MainContent.css";
 
 export default function MainContent() {
   const [results, setResults] = useState([]);
@@ -27,22 +26,26 @@ export default function MainContent() {
   };
 
   return (
-    <div>
-      <Typography>Hello there..</Typography>
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        type="text"
-      />
-      <button onClick={searchHandler}>Search</button>
+    <div className="container">
+      <div className="userSearch">
+        <input
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          className="searchInput"
+        />
+        <button className="searchBtn" onClick={searchHandler}>
+          Search
+        </button>
+      </div>
       <ul>
         {display &&
           results?.map((result, idx) => {
             if (result.title.includes(search)) {
               return (
-                <li key={idx}>
+                <li key={idx} className="list">
                   <span>{result.title}</span>
-                  {`  ${result.subtitle}`}
+                  {` :-  ${result.subtitle}`}
                 </li>
               );
             }
