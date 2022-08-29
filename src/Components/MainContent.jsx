@@ -49,6 +49,7 @@ export default function MainContent() {
                 </li>
               );
             }
+            return null;
           })}
       </ul>
     </div>
